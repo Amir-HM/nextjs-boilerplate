@@ -1,0 +1,25 @@
+// Middleware is disabled when using database sessions with NextAuth.js
+// Database sessions don't work in Edge runtime (middleware)
+//
+// For route protection with database sessions, use one of these approaches:
+// 1. Check auth() in Server Components (recommended)
+// 2. Use useSession() in Client Components
+// 3. Check session in API routes
+
+// import { auth } from "@/auth"
+//
+// export { auth as middleware }
+//
+// export const config = {
+//   matcher: ["/dashboard/:path*"],
+// }
+
+// Example: Protected Server Component
+// import { auth } from "@/auth"
+// import { redirect } from "next/navigation"
+//
+// export default async function ProtectedPage() {
+//   const session = await auth()
+//   if (!session) redirect("/auth/signin")
+//   return <div>Protected content</div>
+// }
